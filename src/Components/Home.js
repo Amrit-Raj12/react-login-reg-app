@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Alert } from "react-bootstrap";
+import {useNavigate} from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate();
+
   const [flag, setFlag] = useState(false);
 
   const [task, setTask] = useState({
@@ -47,6 +50,8 @@ const Home = () => {
         console.log(response);
       });
     setFlag(true);
+
+    navigate('/movies');
   };
   return (
     <>
@@ -70,6 +75,7 @@ const Home = () => {
                     value={category}
                     onChange={(e) => onInputChange(e)}
                     name="category"
+                    required
                   />
                 </div>
 
@@ -82,6 +88,7 @@ const Home = () => {
                     value={language}
                     onChange={(e) => onInputChange(e)}
                     name="language"
+                    required
                   />
                 </div>
 
@@ -94,6 +101,7 @@ const Home = () => {
                     value={genre}
                     onChange={(e) => onInputChange(e)}
                     name="genre"
+                    required
                   />
                 </div>
 
@@ -106,6 +114,7 @@ const Home = () => {
                     value={sort}
                     onChange={(e) => onInputChange(e)}
                     name="sort"
+                    required
                   />
                 </div>
 
